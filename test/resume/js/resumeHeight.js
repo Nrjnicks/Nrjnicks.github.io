@@ -13,8 +13,7 @@ function seeking(){
 }
 function wheel(){
     if(document.getElementById("resume-scroller").classList.contains("active")){
-        console.log(
-            // document.getElementById('resume-iframe').contentWindow.document.getElementById('sideNav').style.top);
+        // console.log( document.getElementById('resume-iframe').contentWindow.document.getElementById('sideNav').style.top);
             document.getElementById('resume-iframe').contentWindow.document.getElementById('sideNav').style.top=($(window).scrollTop()-$('iframe').offset().top)+"px";
 
     }
