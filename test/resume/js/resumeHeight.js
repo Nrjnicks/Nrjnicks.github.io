@@ -8,9 +8,10 @@ function resize(){
 }
 function wheel(){
     if(document.getElementById("resume-scroller").classList.contains("active")){
-        var topPos= ($(window).scrollTop()-$('iframe').offset().top);
-        if(topPos>window.outerHeight) topPos=window.outerHeight;
-        document.getElementById('resume-iframe').contentWindow.document.getElementById('sideNav').style.top=topPos+"px";
+        if(($(window).scrollTop()-$('iframe').offset().bottom)>window.outerHeight){
+            var topPos= ($(window).scrollTop()-$('iframe').offset().top);
+            document.getElementById('resume-iframe').contentWindow.document.getElementById('sideNav').style.top=topPos+"px";
+        }
 
     }
 }
