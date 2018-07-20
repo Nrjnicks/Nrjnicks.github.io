@@ -33,7 +33,7 @@
 
 </head>
 
-<body onload="SetPorfolioElements()" id="page-top" class="index"  onscroll="wheel()">
+<body onload="SetPorfolioElements()" id="page-top" class="index" onscroll="MoveNavBarWithScroll()">
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -58,7 +58,7 @@
                     <li>
                         <a class="page-scroll" href="#portfolio">Portfolio</a>
                     </li>
-                    <li id="resume-scroller">
+                    <li>
                         <a class="page-scroll" href="#resume">Resume</a>
                     </li>
                     <li>
@@ -117,8 +117,7 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <!-- <i class="fa fa-heart-o fa-stack-2x fa-inverse"></i> -->
-                        <i class="fa fa-odnoklassniki fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-gears fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Hobbies</h4>
                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
@@ -157,7 +156,7 @@
 
     <!-- Resume -->
     <div class="resume-scroller" id="resume">
-        <iframe id="resume-iframe" src="resume/index.html" style="width: 100%;border: 0!important;" onload="resize()" ></iframe>
+        <iframe id="resume-iframe" src="resume/index.html" style="width: 100%;border: 0!important;" onload="OnResumeIframeLoad()" ></iframe>
     </div>
 
     <!-- About Section -->
