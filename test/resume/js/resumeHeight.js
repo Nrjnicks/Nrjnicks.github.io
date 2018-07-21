@@ -73,8 +73,8 @@ function MoveNavBarWithScroll(){
             window.clearTimeout(timer);
         }
         timer = window.setTimeout(function() {
-            $(iframeDoc.getElementById('sideNav')).animate({top:topPos},200,"linear");
-        }, 100);
+            $(iframeDoc.getElementById('sideNav')).animate({top:topPos},100,"linear");
+        }, 50);
         
     }
     
