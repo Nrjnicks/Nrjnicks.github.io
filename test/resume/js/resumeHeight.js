@@ -61,19 +61,19 @@ function MoveNavBarWithScroll(){
         else{
             topPos= $('iframe').height() - $(iframeDoc.getElementById('sideNav')).height();
         }
-        // if(timer) {
-        //     window.clearTimeout(timer);
-        // }
+        if(timer) {
+            window.clearTimeout(timer);
+        }
     }
-    // if(screen.width>991){
+    if(screen.width>991){
         iframeDoc.getElementById('sideNav').style.top=topPos+"px";
-    // }
-    // else{//responsive 
-    //     topPos+=$('#mainNav').outerHeight();
-    //     timer = window.setTimeout(function() {
-    //         $(iframeDoc.getElementById('sideNav')).animate({top:topPos},0.5,"linear");
-    //     }, 100);
-    // }
-    // window.clearTimeout(100);
+    }
+    else{//responsive 
+        topPos+=$('#mainNav').outerHeight();
+        timer = window.setTimeout(function() {
+            $(iframeDoc.getElementById('sideNav')).animate({top:topPos},0.5,"linear");
+        }, 100);
+    }
+    window.clearTimeout(100);
     
 }
