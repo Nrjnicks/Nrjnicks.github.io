@@ -7,10 +7,11 @@ function OnResumeIframeLoad(){
 }
 function ResizeIFrame(){
     document.getElementById('resume-iframe').setAttribute("height", iframeDoc.body.offsetHeight+"px"); 
-    if(screen.width>991)//responsive 
+    if(window.outerWidth>991){//responsive
         iframeDoc.getElementById('sideNav').style.height= window.outerHeight-$('#mainNav').height()+"px";
+    }
     else{
-        iframeDoc.getElementById('sideNav').removeAttribute("style");
+        iframeDoc.getElementById('sideNav').removeAttribute("height");
     }
     MoveNavBarWithScroll();
 }
@@ -50,28 +51,29 @@ function ScrollToElem(elementid){
 function MoveNavBarWithScroll(){
     if(!iframeDoc) return;
     
-    var topPos = 0+"px";
+    var topPos = 0;
     var timer;
     // console.log($('mainNav').offset().height);
-    if(($(window).scrollTop()>$('iframe').offset().top-$('#mainNav').height())){
-        if(($(window).scrollTop()< ($('iframe').offset().top+$('iframe').height()) - $(iframeDoc.getElementById('sideNav')).height() )){
-            topPos = (($(window).scrollTop()-$('iframe').offset().top) + $('#mainNav').height())+ "px" ;
+    if(($(window).scrollTop()>$('iframe').offset().top-$('#mainNav').outerHeight())){
+        if(($(window).scrollTop()< ($('iframe').offset().top+$('iframe').height() - $(iframeDoc.getElementById('sideNav')).height())-$('#mainNav').height())){
+            topPos = ($(window).scrollTop()-$('iframe').offset().top)+$('#mainNav').outerHeight();
         }
         else{
-            topPos= ($('iframe').height() - $(iframeDoc.getElementById('sideNav')).height() ) + "px";
+            topPos= $('iframe').height() - $(iframeDoc.getElementById('sideNav')).height();
         }
-        if(timer) {
-            window.clearTimeout(timer);
-        }
+        // if(timer) {
+        //     window.clearTimeout(timer);
+        // }
     }
-    if(screen.width>991){
-        iframeDoc.getElementById('sideNav').style.top=topPos;
-    }
-    else{//responsive 
-        timer = window.setTimeout(function() {
-            $(iframeDoc.getElementById('sideNav')).animate({top:topPos},0.5,"linear");
-        }, 100);
-    }
+    // if(screen.width>991){
+        iframeDoc.getElementById('sideNav').style.top=topPos+"px";
+    // }
+    // else{//responsive 
+    //     topPos+=$('#mainNav').outerHeight();
+    //     timer = window.setTimeout(function() {
+    //         $(iframeDoc.getElementById('sideNav')).animate({top:topPos},0.5,"linear");
+    //     }, 100);
+    // }
     // window.clearTimeout(100);
     
 }
