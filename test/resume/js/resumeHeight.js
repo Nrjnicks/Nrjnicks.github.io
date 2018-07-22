@@ -3,7 +3,9 @@ function OnResumeIframeLoad(){
     iframeDoc = document.getElementById('resume-iframe').contentWindow.document;
     ResizeIFrame();
     SetCallBacks();
-    $( window ).resize(function() {ResizeIFrame();});
+    $(document.getElementById('loader')).hide();
+
+    $( window ).resize(function() {ResizeIFrame();});    
 }
 function ResizeIFrame(){
     document.getElementById('resume-iframe').setAttribute("height", iframeDoc.body.offsetHeight+"px"); 
@@ -17,8 +19,10 @@ function ResizeIFrame(){
         iframeDoc.getElementById('sideNav').removeAttribute("style");
         iframeDoc.getElementById('sideNav').classList.remove("bg-primary");//removed !important from resume bootstrapcss
         iframeDoc.getElementById('sideNav').style.top="0px";
+        iframeDoc.getElementById('sideNav').firstElementChild.style.fontSize="0px"
         iframeDoc.getElementById('sideNav').style.backgroundColor="transparent";
         iframeDoc.getElementById('navbarSupportedContent').style.padding="5vw";
+        iframeDoc.getElementById('navbarSupportedContent').style.borderRadius="0.25rem";
     }
     MoveNavBarWithScroll();
 }
@@ -60,7 +64,6 @@ function MoveNavBarWithScroll(){
     if(!iframeDoc) return;
     
     var topPos = 0;
-    // console.log($('mainNav').offset().height);
     if(($(window).scrollTop()>$('iframe').offset().top-$('#mainNav').outerHeight())){
         if(($(window).scrollTop()< ($('iframe').offset().top+$('iframe').height() - $(iframeDoc.getElementById('sideNav')).height())-$('#mainNav').outerHeight())){
             topPos = ($(window).scrollTop()-$('iframe').offset().top)+$('#mainNav').outerHeight();
@@ -77,6 +80,7 @@ function MoveNavBarWithScroll(){
         topPos+="px";
         if(timer) {
             window.clearTimeout(timer);
+            $(iframeDoc.getElementById('sideNav')).stop();
         }
         timer = window.setTimeout(function() {
             $(iframeDoc.getElementById('sideNav')).animate({top:topPos},100,"linear");
