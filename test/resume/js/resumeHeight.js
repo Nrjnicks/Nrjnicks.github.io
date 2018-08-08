@@ -32,6 +32,10 @@ function SetCallBacks(){
     about.onclick = function(){ScrollToElem("about");}    
     about.classList.remove("active");
 
+    var publication;
+    publication = iframeDoc.getElementById('ScrollTo-publication');
+    publication.onclick = function(){ScrollToElem("publication");}
+
     var experience;
     experience = iframeDoc.getElementById('ScrollTo-experience');
     experience.onclick = function(){ScrollToElem("experience");}
@@ -48,9 +52,9 @@ function SetCallBacks(){
     interests = iframeDoc.getElementById('ScrollTo-interests');
     interests.onclick = function(){ScrollToElem("interests");}
 
-    var awards;
-    awards = iframeDoc.getElementById('ScrollTo-awards');
-    awards.onclick = function(){ScrollToElem("awards");}
+    var blogs;
+    blogs = iframeDoc.getElementById('ScrollTo-blogs');
+    blogs.onclick = function(){ScrollToElem("blogs");}
 }
 function ScrollToElem(elementid){
     var elem = iframeDoc.getElementById(elementid);
@@ -64,12 +68,12 @@ function MoveNavBarWithScroll(){
     if(!iframeDoc) return;
     
     var topPos = 0;
-    if(($(window).scrollTop()>$('iframe').offset().top-$('#mainNav').outerHeight())){
-        if(($(window).scrollTop()< ($('iframe').offset().top+$('iframe').height() - $(iframeDoc.getElementById('sideNav')).height())-$('#mainNav').outerHeight())){
-            topPos = ($(window).scrollTop()-$('iframe').offset().top)+$('#mainNav').outerHeight();
+    if(($(window).scrollTop()>$('iframe').offset().top)){
+        if($(window).scrollTop()< ($('iframe').offset().top+$('iframe').height()) - ($(iframeDoc.getElementById('sideNav')).height()+$('#mainNav').outerHeight()-6)){
+            topPos = ($(window).scrollTop()-$('iframe').offset().top);
         }
         else{
-            topPos= $('iframe').height() - $(iframeDoc.getElementById('sideNav')).height();
+            topPos= $('iframe').height() - $(iframeDoc.getElementById('sideNav')).height()-$('#mainNav').outerHeight()+6;
         }
     }
     if(iframeDoc.getElementById('sideNav').style.top==(topPos+"px")) return;

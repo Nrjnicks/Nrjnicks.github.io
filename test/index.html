@@ -52,7 +52,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="#prologue">Prologue</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#portfolio">Portfolio</a>
@@ -61,13 +61,7 @@
                         <a class="page-scroll" href="#resume">Resume</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#team">Team</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#about">Contacts</a>
                     </li>
                 </ul>
             </div>
@@ -76,7 +70,7 @@
         <!-- /.container-fluid -->
     </nav>     
     <!-- Loader -->
-    <div id="loader" class="fa-stack fa-4x" style="position: fixed; bottom: 0px; right: 0px;padding-bottom: 9%;padding-right: 16%;z-index: 2;">
+    <div id="loader" class="fa-stack fa-4x" style="position: fixed; bottom: 0px; right: 0px;padding-bottom: 9%;padding-right: 16%;z-index: 1051;">
         <i class="fa fa-gamepad fa-stack-1x text-primary"></i>
         <i class="fa fa-circle-o-notch fa-stack-2x text-primary loader-spinner"></i>
     </div>
@@ -86,19 +80,20 @@
         <div class="container">
             <div class="intro-text">
                 <div class="intro-heading">Neeraj S.Thakur</div>
-                <div class="intro-lead-in">Game Programmer</div>
+                <div class="intro-lead-in">Game Programmer and Indie Designer</div>
+                <br>
                 <a href="#portfolio" class="page-scroll btn btn-xl">Admire Portfolio!</a>
             </div>
         </div>
     </header>
 
-    <!-- Services Section -->
-    <section id="services">
+    <!-- Prologue Section -->
+    <section id="prologue">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">In a Nutshell</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">Prologue</h2>
+                    <h3 class="section-subheading text-muted">Welcome to my portfolio website. Nice to meet you! here is me in a nutshell, if you got interested be sure to check out my portfolio!.</h3>
                 </div>
             </div>
             <div class="row text-center">
@@ -108,7 +103,7 @@
                         <i class="fa fa-file-code-o fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Technical Skills</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <p class="text-muted">Unity3D, C#, C++, C, Shader Lab: Cg/HLSL, Android Studios, java, javascript, python, MATLAB.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -116,7 +111,7 @@
                         <i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Education</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <p class="text-muted">Indian Institute of Technology (IIT) Kanpur.<br>June 2013-July 2017</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -124,7 +119,7 @@
                         <i class="fa fa-gears fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Hobbies</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <p class="text-muted">Science, Anime, Manga, Violin, Painting, Games, Arts and Craft, Music, Keyboard Piano, Writing, Reading.</p>
                 </div>
             </div>
         </div>
@@ -136,12 +131,12 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Portfolio</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">Profesional and Personal Projects I was part of.</h3>
                 </div>
             </div>
             <div class="row">
                 <div id="portfolio-element" class="col-md-4 col-sm-6 portfolio-item">
-                    <a id="" onclick="SetModalParams(id)" href="#portfolioModal" class="portfolio-link" data-toggle="modal">
+                    <a id="" onclick="ShowProjectModal(id)" href="#portfolioModal" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
@@ -163,250 +158,62 @@
         <iframe id="resume-iframe" src="resume/index.html" style="width: 100%;border: 0!important;" onload="OnResumeIframeLoad()" ></iframe>
     </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>2009-2011</h4>
-                                    <h4 class="subheading">Our Humble Beginnings</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>March 2011</h4>
-                                    <h4 class="subheading">An Agency is Born</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>December 2012</h4>
-                                    <h4 class="subheading">Transition to Full Service</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>July 2014</h4>
-                                    <h4 class="subheading">Phase Two Expansion</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Team Section -->
-    <section id="team" class="bg-light-gray">
+    <section id="about" style="padding: 100px 0">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">Contacts</h2>
+                    <h3 class="section-subheading text-muted">I hope you got interested in my works!</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team-member">
                         <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Designer</p>
+                        <h4>Neeraj S.Thakur</h4>
+                        <p class="text-muted">Game Programmer</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="mailto:nrjnicks@gmail.com"><i class="fa fa-envelope"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a target="_blank" href="https://www.facebook.com/NrjNicks"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/nrjnicks"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Larry Parker</h4>
-                        <p class="text-muted">Lead Marketer</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="col-sm-8">
+                    <p class="text-muted text-justify">I am Neeraj S.Thakur, graduate from IIT Kanpur. I am a game programmer and on path of becoming a game designer. If you liked my work, be sure to contact me<br>
+                    <a href="mailto:nrjnicks@gmail.com"><span class="fa-stack fa-2x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                    </span> nrjnicks@gmail.com</a>
+                    <br>
+                    <a href="tel:+919795694418"><span class="fa-stack fa-2x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                    </span>+91 9795694418</a>
+                    <br>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=919795694418"><span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-whatsapp fa-stack-1x fa-inverse"></i>
+                        </span>+91 9795694418</a>
+                    <br>I enjoy most of my time honing my creativity. I have inherent love with Music and Art and Crafts. I started playing violin recently. I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring writer, and I spend a large amount of my free time exploring the latest technolgy advancements in game development world.<br>I love knowing new people and discussing about new advancements in game industry. If you are also a gaming enthusiast, we could probabily talk for hours discussing about unique game mecahnics (Portal or Monument Valley?).
+                    </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Clients Aside -->
-    <aside class="clients">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/envato.jpg" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/designmodo.jpg" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/themeforest.jpg" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/creative-market.jpg" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </aside>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
+                    <p class="large text-muted">Around here, we don't look backwards for very long. We <b>KEEP MOVING FORWARD</b>, opening up new doors and doing new things because we're curious and curiosity keeps leading us down new paths</p> 
+                    <p class="large text-muted" style="text-align: right"><i>-Walter E. Disney</i></p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2016</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <p class="text-muted"><i>Thankyou for visiting my portfolio.<br>I hope you have a great day!</i></p>
     </footer>
 
     <!-- Use the modals below to showcase details about your portfolio projects! -->
@@ -414,11 +221,8 @@
     <div class="portfolio-modal modal fade" id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
+                <div onclick="ResetModalParams()" class="close-modal" data-dismiss="modal">
+                    <div class="lr"><div class="rl"></div></div>
                 </div>
                 <div class="container">
                     <div class="row">
@@ -426,7 +230,9 @@
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
                                 <h2><span id="modal-projectname">Project Name</span></h2>
-                                <p class="item-intro text-muted"><span id="modal-projectsmalldescription">Lorem ipsum dolor sit amet consectetur.</span></p>
+                                <p class="item-intro text-muted"><span id="modal-projectsmalldescription">Small Desc</span></p>
+                                <iframe id="modal-videoiframe" onload="hideLoader()" width="560" height="315" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                <br><br><br>
                                 <!-- Portfolio Corousel Go Here -->
                                 <div class="container" style="width: 100%"> 
                                     <div id="portfolio-carousel" class="carousel slide" data-ride="carousel">
@@ -453,18 +259,21 @@
                                         </a>
                                     </div>
                                 </div>
-                                <span id="modal-projectlargedescription">
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <p>
-                                        <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.</p>
-                                    <ul class="list-inline">
-                                        <li>Date: July 2014</li>
-                                        <li>Client: Round Icons</li>
-                                        <li>Category: Graphic Design</li>
-                                    </ul>
-                                </span>
+                                <br><br><br>
+                                <div id="modal-projectlargedescription" class="text-justify">
+                                    <p>Information goes here</p>
+                                </div>
                                 <br>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                                <a id="modal-downloadlink" type="button" target="_blank" class="btn btn-xl"><i class="fa fa-link"></i>  Download Link</a>
+                                <br><br>
+                                <div>
+                                <button onclick="ShowPreviousProjectModal()" type="button" class="btn btn-primary" style="float: left;"><i class="fa fa-arrow-left"></i> Previous Project</button>
+                                <button onclick="ShowNextProjectModal()" type="button" class="btn btn-primary" style="float: right;">Next Project <i class="fa fa-arrow-right"></i></button>
+                                </div>
+                                <br><br>
+                                <div>
+                                    <button onclick="ResetModalParams()" type="button" class="btn page-scroll" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                                </div>
                             </div>
                         </div>
                     </div>
