@@ -1,4 +1,4 @@
-const Projects = {
+﻿const Projects = {
     Details:{//adding in opposite-chronological order, so it's easy to add later    
         Template: {
             ID: "Template",
@@ -59,7 +59,7 @@ const Projects = {
             LargeDescription: "Designed and tested various prototypes of different genres of games like Tower Defense, Match-3, First and Third Person Shooter, Education, Fashion, Strategy and many more.<br>Some of the sample projects I would like to define:<br><br>• Anthropocene-The Game: Real-time strategy game for Android, built on Unity3D to spread message of climatic change and saving the environment. Gameplay: Maintaining balance between renewable and nonrenewable resources and not let in-game temperature rise by 2 degree Celsius <br><br>• Match-3: Built a match-three mini-game during internship period at Mech Mocha Game Std. Pvt. Lim., where player swaps two gems to make a pattern. Game had various combo moves like: 4-match: vertical or horizonal gem crusher, L shape-match: Bomb, 5-match: similar gem distroyer. <br><br>• Tower and Creeps: A tower defense game where player defends Home Tower by placing small towers to hit the Creeps and prevent them to reach the base. <br><br>• Escher Effect: Mimicked an illusion in virtual space. This illusion was also used in game- Monument Valley (by- Us Two).<br><br>• BodyShape: Educational grid game, where player completes a body by using tiles which can only be obtained if the number of turns already took is equal to the space between two tiles.",
             DownloadLink: "",
             EmbedVideoLinkID: "",
-            NoOfProjectImages: 12
+            NoOfProjectImages: 11
         },
         NearbyConnections: {
             ID: "NearbyConnections",
