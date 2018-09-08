@@ -7,15 +7,18 @@ function OnResumeIframeLoad(){
 
     $( window ).resize(function() {ResizeIFrame();});    
 }
+var yOffset;
 function ResizeIFrame(){
     document.getElementById('resume-iframe').setAttribute("height", iframeDoc.body.offsetHeight+"px"); 
-    if(window.outerWidth>991){//responsive        
+    if(window.innerWidth>784){//responsive        
+        yOffset=false;
         iframeDoc.getElementById('sideNav').removeAttribute("style");
-        iframeDoc.getElementById('sideNav').style.height= window.outerHeight-$('#mainNav').height()+"px";
+        iframeDoc.getElementById('sideNav').style.height= window.innerHeight-$('#mainNav').height()+"px";
         if(!iframeDoc.getElementById('sideNav').classList.contains("bg-primary"))
             iframeDoc.getElementById('sideNav').classList.add("bg-primary");
     }
     else{
+        yOffset=true;
         iframeDoc.getElementById('sideNav').removeAttribute("style");
         iframeDoc.getElementById('sideNav').classList.remove("bg-primary");//removed !important from resume bootstrapcss
         iframeDoc.getElementById('sideNav').style.top="0px";
@@ -68,12 +71,12 @@ function MoveNavBarWithScroll(){
     if(!iframeDoc) return;
     
     var topPos = 0;
-    if(($(window).scrollTop()>$('iframe').offset().top)){
-        if($(window).scrollTop()< ($('iframe').offset().top+$('iframe').height()) - ($(iframeDoc.getElementById('sideNav')).height()+$('#mainNav').outerHeight()-6)){
-            topPos = ($(window).scrollTop()-$('iframe').offset().top);
+    if(($(window).scrollTop()>$('iframe').offset().top-$('#mainNav').outerHeight())){
+        if($(window).scrollTop()< ($('iframe').offset().top+$('iframe').height()) - ($(iframeDoc.getElementById('sideNav')).height()+2*$('#mainNav').outerHeight()-6)){
+            topPos = ($(window).scrollTop()-$('iframe').offset().top)+$('#mainNav').outerHeight();
         }
         else{
-            topPos= $('iframe').height() - $(iframeDoc.getElementById('sideNav')).height()-$('#mainNav').outerHeight()+6;
+            topPos= $('iframe').height() - ($(iframeDoc.getElementById('sideNav')).height()+$('#mainNav').outerHeight()-6);
         }
     }
     if(iframeDoc.getElementById('sideNav').style.top==(topPos+"px")) return;
