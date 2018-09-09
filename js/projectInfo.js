@@ -45,7 +45,7 @@ const Projects = {
         },        
         Homography: {
             ID: "Homography",
-            Name: "Reactive Display for Virtual Reality",
+            Name: "Reactive Display for VR",
             SmallDescription: "ISMAR 2017 (IEEE Publication)",
             LargeDescription: 'The feeling of presence in virtual reality has enabled a large number of applications. These applications typically deal with 360° content. However, a large amount of existing content is available in terms of images and videos i.e 2D content. Unfortunately, these do not react to the viewer position or motion when viewed through a VR Head Mount Device.<br><br>Thus in this work, we propose reactive displays for VR which instigate a feeling of discovery while exploring 2D content. We create this by taking into account user position and motion to compute homography based mappings that adapt the 2D content and re-project it onto the display. This allows the viewer to obtain a more richer experience of interacting with 2D content similar to the effect of viewing through the window at a scene. We also provide a VR interface that uses a constrained set of reactive displays to easily browse through 360° content.<br><br>The proposed interface tackles the problem of nausea caused by existing interfaces like photospheres by providing a natural room-like intermediate interface before changing 360° content. We perform user studies to evaluate both of our interfaces. The results show that the proposed reactive display interfaces are indeed beneficial.',
             DownloadLink: "https://ieeexplore.ieee.org/document/8088450/",
