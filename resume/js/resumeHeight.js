@@ -1,33 +1,16 @@
 var iframeDoc;
-function OnResumeIframeLoad(){
+function OnResumeIframeLoad(){    
     iframeDoc = document.getElementById('resume-iframe').contentWindow.document;
+    window.scrollTo(0,0); 
+    document.body.setAttribute('onscroll', 'MoveNavBarWithScroll()');
     ResizeIFrame();
     SetCallBacks();
     $(document.getElementById('loader')).hide();
 
-    $( window ).resize(function() {ResizeIFrame();});    
-}
-var yOffset;
-function ResizeIFrame(){
-    document.getElementById('resume-iframe').setAttribute("height", iframeDoc.body.offsetHeight+"px"); 
-    if(window.innerWidth>784){//responsive        
-        yOffset=false;
-        iframeDoc.getElementById('sideNav').removeAttribute("style");
-        iframeDoc.getElementById('sideNav').style.height= window.innerHeight-$('#mainNav').height()+"px";
-        if(!iframeDoc.getElementById('sideNav').classList.contains("bg-primary"))
-            iframeDoc.getElementById('sideNav').classList.add("bg-primary");
-    }
-    else{
-        yOffset=true;
-        iframeDoc.getElementById('sideNav').removeAttribute("style");
-        iframeDoc.getElementById('sideNav').classList.remove("bg-primary");//removed !important from resume bootstrapcss
-        iframeDoc.getElementById('sideNav').style.top="0px";
-        iframeDoc.getElementById('sideNav').firstElementChild.style.fontSize="0px"
-        iframeDoc.getElementById('sideNav').style.backgroundColor="transparent";
-        iframeDoc.getElementById('navbarSupportedContent').style.padding="5vw";
-        iframeDoc.getElementById('navbarSupportedContent').style.borderRadius="0.25rem";
-    }
-    MoveNavBarWithScroll();
+    $(window).resize(function() {ResizeIFrame();}); 
+    window.setTimeout(function() {//delay because mainnav size animates
+        MoveNavBarWithScroll();
+    }, 250);   
 }
 function SetCallBacks(){
     var about;
@@ -66,6 +49,29 @@ function ScrollToElem(elementid){
         scrollTop: scrollYVal
     }, 500);
 }
+
+var yOffset;
+var responsiveWidth=784;
+function ResizeIFrame(){
+    document.getElementById('resume-iframe').setAttribute("height", iframeDoc.body.offsetHeight+"px"); 
+    if(window.innerWidth>responsiveWidth){//responsive        
+        yOffset=false;
+        iframeDoc.getElementById('sideNav').removeAttribute("style");
+        iframeDoc.getElementById('sideNav').style.height= window.innerHeight-$('#mainNav').height()+"px";
+        if(!iframeDoc.getElementById('sideNav').classList.contains("bg-primary"))
+            iframeDoc.getElementById('sideNav').classList.add("bg-primary");
+    }
+    else{
+        yOffset=true;
+        iframeDoc.getElementById('sideNav').removeAttribute("style");
+        iframeDoc.getElementById('sideNav').classList.remove("bg-primary");//removed !important from resume bootstrapcss
+        iframeDoc.getElementById('sideNav').style.top="0px";
+        iframeDoc.getElementById('sideNav').firstElementChild.style.fontSize="0px"
+        iframeDoc.getElementById('sideNav').style.backgroundColor="transparent";
+        iframeDoc.getElementById('navbarSupportedContent').style.padding="5vw";
+        iframeDoc.getElementById('navbarSupportedContent').style.borderRadius="0.25rem";
+    }
+}
 var timer;
 function MoveNavBarWithScroll(){
     if(!iframeDoc) return;
@@ -80,7 +86,7 @@ function MoveNavBarWithScroll(){
         }
     }
     if(iframeDoc.getElementById('sideNav').style.top==(topPos+"px")) return;
-    if(screen.width>991){
+    if(screen.width>responsiveWidth){
         iframeDoc.getElementById('sideNav').style.top=topPos+"px";
     }
     else{//responsive 

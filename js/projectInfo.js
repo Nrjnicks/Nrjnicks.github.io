@@ -110,18 +110,27 @@ var RankedProjects=[
     Projects.Details.RiTE,
     Projects.Details.NearbyConnections
 ];
+function OnBodyLoad(){
+    window.scrollTo(0,0); 
+    SetPorfolioElements();
+
+}
 function SetPorfolioElements(){
     var element = document.getElementById("portfolio-element");
     var parent = element.parentElement;
     parent.removeChild(element);//remove template element to start clean
 
-    for (let projectNo = 0; projectNo < RankedProjects.length; projectNo++){
-        // console.log(RankedProjects[projectNo].ID);
+    for (var projectNo = 0; projectNo < RankedProjects.length; projectNo++){
+        var ProjectDetail = RankedProjects[projectNo];
+        // console.log(ProjectDetail.ID);
         element = element.cloneNode(true);
-        element.firstElementChild.id = RankedProjects[projectNo].ID;//change id of first child which is responsible for click
-        element.lastElementChild.firstElementChild.innerHTML= RankedProjects[projectNo].Name;
-        element.lastElementChild.lastElementChild.innerHTML=RankedProjects[projectNo].SmallDescription;
-        element.getElementsByTagName("img")[0].setAttribute("src","img/portfolio/"+RankedProjects[projectNo].ID+"/1.jpg");
+        element.firstElementChild.id = ProjectDetail.ID;//change id of first child which is responsible for click
+        element.lastElementChild.firstElementChild.innerHTML= ProjectDetail.Name;
+        var elem = element.getElementsByTagName("img")[0];
+        element.lastElementChild.lastElementChild.innerHTML= ProjectDetail.SmallDescription;
+        elem.setAttribute("src","img/portfolio/"+ProjectDetail.ID+"/"+ProjectDetail.ID+"1.jpg");
+        elem.setAttribute("alt", ProjectDetail.ID+", "+ProjectDetail.Name+", "+ProjectDetail.SmallDescription);
+        elem.setAttribute("title", ProjectDetail.Name+", "+ProjectDetail.SmallDescription);
         parent.appendChild(element);
     }
     $(document).keyup(function(e) {
@@ -197,7 +206,7 @@ function SetCarousel(ProjectDetail){
     DeleteAllChild(indicatorParent);
     DeleteAllChild(innerParent);
 
-    var imgPath= "img/portfolio/"+ProjectDetail.ID+"/";
+    var imgPath= "img/portfolio/"+ProjectDetail.ID+"/"+ProjectDetail.ID;
     for (let i = 1; i <= ProjectDetail.NoOfProjectImages; i++) {
         
         indicator.setAttribute("data-slide-to",i);
