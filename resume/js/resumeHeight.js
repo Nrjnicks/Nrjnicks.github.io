@@ -57,6 +57,7 @@ function ResizeIFrame(){
     if(window.innerWidth>=responsiveWidth){//responsive        
         yOffset=false;
         iframeDoc.getElementById('sideNav').removeAttribute("style");
+        iframeDoc.getElementById('navbarSupportedContent').removeAttribute("style");
         iframeDoc.getElementById('sideNav').style.height= window.innerHeight-$('#mainNav').height()+"px";
         if(!iframeDoc.getElementById('sideNav').classList.contains("bg-primary"))
             iframeDoc.getElementById('sideNav').classList.add("bg-primary");
