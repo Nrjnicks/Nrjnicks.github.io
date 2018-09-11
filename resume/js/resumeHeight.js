@@ -7,7 +7,7 @@ function OnResumeIframeLoad(){
     SetCallBacks();
     $(document.getElementById('loader')).hide();
 
-    $(window).resize(function() {ResizeIFrame();}); 
+    $(window).resize(function() {ResizeIFrame();MoveNavBarWithScroll();}); 
     window.setTimeout(function() {//delay because mainnav size animates
         MoveNavBarWithScroll();
     }, 250);   
