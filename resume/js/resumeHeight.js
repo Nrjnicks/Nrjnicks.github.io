@@ -51,10 +51,10 @@ function ScrollToElem(elementid){
 }
 
 var yOffset;
-var responsiveWidth=784;
+var responsiveWidth=768;
 function ResizeIFrame(){
     document.getElementById('resume-iframe').setAttribute("height", iframeDoc.body.offsetHeight+"px"); 
-    if(window.innerWidth>responsiveWidth){//responsive        
+    if(window.innerWidth>=responsiveWidth){//responsive        
         yOffset=false;
         iframeDoc.getElementById('sideNav').removeAttribute("style");
         iframeDoc.getElementById('sideNav').style.height= window.innerHeight-$('#mainNav').height()+"px";
@@ -86,7 +86,7 @@ function MoveNavBarWithScroll(){
         }
     }
     if(iframeDoc.getElementById('sideNav').style.top==(topPos+"px")) return;
-    if(screen.width>responsiveWidth){
+    if(window.innerWidth>=responsiveWidth){
         iframeDoc.getElementById('sideNav').style.top=topPos+"px";
     }
     else{//responsive 
