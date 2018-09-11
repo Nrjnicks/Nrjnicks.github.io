@@ -110,11 +110,8 @@ var RankedProjects=[
     Projects.Details.RiTE,
     Projects.Details.NearbyConnections
 ];
-function OnBodyLoad(){
-    window.scrollTo(0,0); 
-    SetPorfolioElements();
-
-}
+//Functions
+SetPorfolioElements();
 function SetPorfolioElements(){
     var element = document.getElementById("portfolio-element");
     var parent = element.parentElement;
