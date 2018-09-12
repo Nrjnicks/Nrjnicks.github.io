@@ -53,11 +53,9 @@ function ScrollToElem(elementid){
 var responsiveWidth=768;
 var iframeTop, endTopPos;
 function ResizeIFrame(){
-    console.log(iframeDoc.body.offsetHeight);
-    document.getElementById('resume-iframe').setAttribute("height", iframeDoc.body.offsetHeight+"px"); 
-    document.getElementById('resume-iframe').setAttribute("height", iframeDoc.body.offsetHeight+"px"); 
-    console.log(iframeDoc.body.offsetHeight);
-    console.log(document.getElementById('resume-iframe').getAttribute("height"));
+    document.getElementById('resume-iframe').setAttribute("height", iframeDoc.body.offsetHeight+"px");
+    document.getElementById('resume-iframe').setAttribute("height", iframeDoc.body.offsetHeight+"px");//same line because previous line was not setting right height 
+    document.getElementById('resume').style.height = iframeDoc.body.offsetHeight+"px";//same line because previous line was not setting right height 
     if(window.innerWidth>=responsiveWidth){//responsive
         sideNav.removeAttribute("style");
         iframeDoc.getElementById('navbarSupportedContent').removeAttribute("style");
@@ -76,7 +74,6 @@ function ResizeIFrame(){
     }
     iframeTop=$('iframe').offset().top;
     endTopPos= $('iframe').height() - $(sideNav).height();
-    console.log(iframeTop);
     MoveNavBarWithScroll();
 }
 var timer,scroll;
