@@ -9,3 +9,9 @@
     --primary-text-color:#333;
     --secondary-text-color:#777;
 }
+:root{
+    --title-font-size:75px;
+    --header-font-size:40px;
+    --sub-header-font-size:20px;
+    --text-font-size:16px;
+}
