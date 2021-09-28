@@ -5,8 +5,12 @@ const Projects = {
             Name: "",
             SmallDescription: "",
             LargeDescription: "",
-            DownloadLink: "",
-            EmbedVideoLinkID: "",
+            GooglePlayStoreProjectId: "",
+            ITunesProjectId: "",
+            SteamProjectId: "",//soon comrade
+            GithubProjectRepo: "",
+            YoutubeVideoId: "",
+            MoreInfoLink: "",
             NoOfProjectImages: 1
         },
         WorkInProgress: {

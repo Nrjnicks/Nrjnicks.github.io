@@ -77,10 +77,10 @@ function ShowProjectModal(id) {
         }
 
         function SetProjectDownloadLink() {
-            var downloadLinkElement = document.getElementById("modal-downloadlink");
-            if (ProjectDetail.DownloadLink) {
+            var downloadLinkElement = document.getElementById("modal-moreinfolink");
+            if (ProjectDetail.MoreInfoLink) {
                 ShowElement($(downloadLinkElement));
-                downloadLinkElement.setAttribute('href', ProjectDetail.DownloadLink);
+                downloadLinkElement.setAttribute('href', ProjectDetail.MoreInfoLink);
             }
             else {
                 HideElement($(downloadLinkElement));
@@ -89,9 +89,9 @@ function ShowProjectModal(id) {
 
         function SetVideoElement() {
             var videoElement = document.getElementById("modal-videoiframe");
-            if (ProjectDetail.EmbedVideoLinkID) {
+            if (ProjectDetail.YoutubeVideoId) {
                 ShowElement($(videoElement));
-                videoElement.setAttribute('src', `https://www.youtube.com/embed/${ProjectDetail.EmbedVideoLinkID}/?mute=1`);
+                videoElement.setAttribute('src', `https://www.youtube.com/embed/${ProjectDetail.YoutubeVideoId}/?mute=1`);
                 videoElement.setAttribute('onload', HideLoader.name);
                 return true
             }
@@ -151,7 +151,7 @@ function ResetModalParams() {
     document.getElementById("modal-projectname").innerHTML = '';
     document.getElementById("modal-projectsmalldescription").innerHTML = '';
     document.getElementById("modal-projectlargedescription").innerHTML = '';
-    document.getElementById("modal-downloadlink").setAttribute('href', '');
+    document.getElementById("modal-moreinfolink").setAttribute('href', '');
     document.getElementById("modal-videoiframe").setAttribute('src', '');
     AnimateModalToReset();
 
