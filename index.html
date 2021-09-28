@@ -82,7 +82,7 @@
     <div id="loader" class="fa-stack fa-4x"
         style="position: fixed; bottom: 0px; right: 0px;padding-bottom: 9%;padding-right: 16%;z-index: 1051;">
         <i class="fa fa-gamepad fa-stack-1x text-primary"></i>
-        <i class="fa fa-circle-o-notch fa-stack-2x text-primary loader-spinner"></i>
+        <i class="fa fa-circle-o-notch fa-stack-2x text-primary spin"></i>
     </div>
 
     <!-- Header -->
@@ -96,7 +96,8 @@
                 <!-- <div class="intro-lead-in">(Looking for opportunities)</div> -->
                 <br>
                 <br>
-                <a href="#portfolio" class="page-scroll btn btn-xl">Check Portfolio!</a>
+                <a href="#portfolio" class="btn-intro bounce page-scroll btn btn-xl"><i
+                    class="fa fa-5x fa-angle-down"></i></a>
             </div>
         </div>
     </header>
@@ -270,15 +271,15 @@
         style="display: none;">
         <div class="modal-dialog">
             <div class="modal-content">
-                <button onclick="ResetModalParams()" type="button" class="btn btn-primary close-modal"
+                <button onclick="ResetModalParams()" type="button" class="btn btn-xl close-modal"
                     data-dismiss="modal">
                     <i class="fa fa-times fa-3x" aria-hidden="true"></i>
                 </button>
                 <div class="container full-width-container">
                     <div class="row">
                         <div class="col-sm-2 change-modal-btn">
-                            <button onclick="ShowPreviousProjectModal()" type="button" class="btn btn-primary">
-                                <i class="fa fa-2x fa-arrow-left"></i>
+                            <button onclick="ShowPreviousProjectModal()" type="button" class="btn btn-xl">
+                                <i class="fa fa-3x fa-arrow-left"></i>
                             </button>
                         </div>
                         <div class="col-lg-8">
@@ -340,8 +341,8 @@
                             </div>
                         </div>
                         <div class="col-sm-2 change-modal-btn">
-                            <button onclick="ShowNextProjectModal()" type="button" class="btn btn-primary">
-                                <i class="fa fa-2x fa-arrow-right"></i>
+                            <button onclick="ShowNextProjectModal()" type="button" class="btn btn-xl">
+                                <i class="fa fa-3x fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
