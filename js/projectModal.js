@@ -42,6 +42,7 @@ function SetPorfolioElements() {
         portfolioElement.lastElementChild.lastElementChild.innerHTML = ProjectDetail.SmallDescription;
 
         SetPortfolioThumbnail();
+        parent.appendChild(portfolioElement);
     }
 
     function SetPortfolioThumbnail() {
@@ -49,7 +50,6 @@ function SetPorfolioElements() {
         imgElement.setAttribute("src", `img/portfolio/${ProjectDetail.ID}/thumb.jpg`);
         imgElement.setAttribute("alt", `${ProjectDetail.ID}, ${ProjectDetail.Name}, ${ProjectDetail.SmallDescription}`);
         imgElement.setAttribute("title", `${ProjectDetail.Name}, ${ProjectDetail.SmallDescription}`);
-        parent.appendChild(portfolioElement);
     }
 }
 
