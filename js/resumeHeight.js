@@ -1,11 +1,11 @@
 var iframeDoc;
 var sideNav;
 function OnResumeIframeLoad(){    
+    HideLoader();
     iframeDoc = document.getElementById('resume-iframe').contentWindow.document;
     sideNav=iframeDoc.getElementById('sideNav');
     window.scrollTo(0,0); 
-    document.body.setAttribute('onscroll', 'MoveNavBarWithScroll()');
-    $(document.getElementById('loader')).hide();
+    document.body.setAttribute('onscroll', MoveNavBarWithScroll.name);
     ResizeIFrame();
     SetCallBacks();
 
@@ -14,34 +14,34 @@ function OnResumeIframeLoad(){
     // }, 300);   
 }
 function SetCallBacks(){
-    var about;
-    about = iframeDoc.getElementById('ScrollTo-about');
-    about.onclick = function(){ScrollToElem("about");}    
-    about.classList.remove("active");
+    // var about;
+    // about = iframeDoc.getElementById('ScrollTo-about');
+    // about.onclick = function(){ScrollToElem("about");}    
+    // about.classList.remove("active");
 
-    var publication;
-    publication = iframeDoc.getElementById('ScrollTo-publication');
-    publication.onclick = function(){ScrollToElem("publication");}
+    // var publication;
+    // publication = iframeDoc.getElementById('ScrollTo-publication');
+    // publication.onclick = function(){ScrollToElem("publication");}
 
-    var experience;
-    experience = iframeDoc.getElementById('ScrollTo-experience');
-    experience.onclick = function(){ScrollToElem("experience");}
+    // var experience;
+    // experience = iframeDoc.getElementById('ScrollTo-experience');
+    // experience.onclick = function(){ScrollToElem("experience");}
 
-    var education;
-    education = iframeDoc.getElementById('ScrollTo-education');
-    education.onclick = function(){ScrollToElem("education");}
+    // var education;
+    // education = iframeDoc.getElementById('ScrollTo-education');
+    // education.onclick = function(){ScrollToElem("education");}
 
-    var skills;
-    skills = iframeDoc.getElementById('ScrollTo-skills');
-    skills.onclick = function(){ScrollToElem("skills");}
+    // var skills;
+    // skills = iframeDoc.getElementById('ScrollTo-skills');
+    // skills.onclick = function(){ScrollToElem("skills");}
 
-    var interests;
-    interests = iframeDoc.getElementById('ScrollTo-interests');
-    interests.onclick = function(){ScrollToElem("interests");}
+    // var interests;
+    // interests = iframeDoc.getElementById('ScrollTo-interests');
+    // interests.onclick = function(){ScrollToElem("interests");}
 
-    var blogs;
-    blogs = iframeDoc.getElementById('ScrollTo-blogs');
-    blogs.onclick = function(){ScrollToElem("blogs");}
+    // var blogs;
+    // blogs = iframeDoc.getElementById('ScrollTo-blogs');
+    // blogs.onclick = function(){ScrollToElem("blogs");}
 }
 function ScrollToElem(elementid){
     var elem = iframeDoc.getElementById(elementid);
