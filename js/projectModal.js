@@ -35,21 +35,26 @@ function SetPorfolioElements() {
 
     for (var projectNo = 0; projectNo < RankedProjects.length; projectNo++) {
         var ProjectDetail = RankedProjects[projectNo];
-        // console.log(ProjectDetail.ID);
+        
         portfolioElement = portfolioElement.cloneNode(true);
-        portfolioElement.firstElementChild.id = ProjectDetail.ID;//change id of first child which is responsible for click
-        portfolioElement.lastElementChild.firstElementChild.innerHTML = ProjectDetail.Name;
-        portfolioElement.lastElementChild.lastElementChild.innerHTML = ProjectDetail.SmallDescription;
-
-        SetPortfolioThumbnail();
+        SetPortfolioThumbnail(portfolioElement);
         parent.appendChild(portfolioElement);
     }
 
-    function SetPortfolioThumbnail() {
+    function SetPortfolioThumbnail(portfolioElement) {
+        portfolioElement.firstElementChild.id = ProjectDetail.ID; //change id of first child which is responsible for click
+        var h4Element = portfolioElement.getElementsByTagName("h4")[0];
+        h4Element.innerHTML = ProjectDetail.Name;
+        var pElement = portfolioElement.getElementsByTagName("p")[0];
+        pElement.innerHTML = ProjectDetail.SmallDescription;
         var imgElement = portfolioElement.getElementsByTagName("img")[0];
-        imgElement.setAttribute("src", `img/portfolio/${ProjectDetail.ID}/thumb.jpg`);
-        imgElement.setAttribute("alt", `${ProjectDetail.ID}, ${ProjectDetail.Name}, ${ProjectDetail.SmallDescription}`);
-        imgElement.setAttribute("title", `${ProjectDetail.Name}, ${ProjectDetail.SmallDescription}`);
+        SetPortfolioThumbnailImg(imgElement);
+
+        function SetPortfolioThumbnailImg(imgElement) {
+            imgElement.setAttribute("src", `img/portfolio/${ProjectDetail.ID}/thumb.jpg`);
+            imgElement.setAttribute("alt", `${ProjectDetail.ID}, ${ProjectDetail.Name}, ${ProjectDetail.SmallDescription}`);
+            imgElement.setAttribute("title", `${ProjectDetail.Name}, ${ProjectDetail.SmallDescription}`);
+        }
     }
 }
 
