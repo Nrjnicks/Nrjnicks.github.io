@@ -201,6 +201,9 @@ function ShowNextProjectModal() {
     ShowProjectModal(RankedProjects[(currentProjectNumber + 1) % RankedProjects.length].ID);
 }
 
+function ClosePortfolioModal() {
+    ResetModalParams();
+}
 function ResetModalParams() {
     document.getElementById("modal-projectname").innerHTML = '';
     document.getElementById("modal-projectsmalldescription").innerHTML = '';

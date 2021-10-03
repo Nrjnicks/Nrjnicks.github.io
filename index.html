@@ -99,8 +99,8 @@
                 <!-- <div class="intro-lead-in">(Looking for opportunities)</div> -->
                 <br>
                 <br>
-                <a href="#portfolio" class="btn-intro bounce page-scroll btn btn-xl"><i
-                    class="fa fa-5x fa-angle-down"></i></a>
+                <a href="#portfolio" class="btn-common btn-xl btn-intro page-scroll"><i
+                        class="fa fa-5x fa-angle-down"></i></a>
             </div>
         </div>
     </header>
@@ -117,7 +117,7 @@
             <div class="row text-center">
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
-                        <i class="fa-icon circled fa fa-file-code-o shake fa-stack-1x"></i>
+                        <i class="fa-icon-circled fa fa-file-code-o shake fa-stack-1x"></i>
                     </span>
                     <h4 class="prologue-heading">Technical Skills</h4>
                     <p class="text-muted">Unity3D, C#, C++, C, Shader Lab: Cg/HLSL, Android Studios, java, javascript,
@@ -125,14 +125,14 @@
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
-                        <i class="fa-icon circled fa fa-graduation-cap shake fa-stack-1x"></i>
+                        <i class="fa-icon-circled fa fa-graduation-cap shake fa-stack-1x"></i>
                     </span>
                     <h4 class="prologue-heading">Education</h4>
                     <p class="text-muted">Indian Institute of Technology (IIT) Kanpur.<br>June 2013-July 2017</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
-                        <i class="fa-icon circled fa fa-gear spin fa-stack-1x"></i>
+                        <i class="fa-icon-circled fa fa-gear spin fa-stack-1x"></i>
                     </span>
                     <h4 class="prologue-heading">Hobbies</h4>
                     <p class="text-muted">Science, Anime, Manga, Violin, Painting, Games, Arts and Craft, Music,
@@ -208,15 +208,15 @@
                         <h4>Neeraj S.Thakur</h4>
                         <p class="text-muted">Game Programmer</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="mailto:nrjnicks@gmail.com"><i class="fa fa-lg fa-envelope shake"></i></a>
+                            <li><a class="btn-common btn-primary" href="mailto:nrjnicks@gmail.com"><i class="fa fa-2x vertical-middle fa-envelope shake"></i></a>
                             </li>
-                            <li><a target="_blank" href="tel:+919795694418"><i class="fa fa-lg fa-phone shake"></i></a>
+                            <li><a class="btn-common btn-primary" target="_blank" href="tel:+919795694418"><i class="fa fa-2x vertical-middle fa-phone shake"></i></a>
                             </li>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/nrjnicks"><i
-                                        class="fa fa-lg fa-linkedin shake"></i></a>
+                            <li><a class="btn-common btn-primary" target="_blank" href="https://www.linkedin.com/in/nrjnicks"><i
+                                        class="fa fa-2x vertical-middle fa-linkedin shake"></i></a>
                             </li>
-                            <li><a target="_blank" href="https://steamcommunity.com/id/nrjnicks/"><i
-                                        class="fa fa-lg fa-steam shake"></i></a>
+                            <li><a class="btn-common btn-primary" target="_blank" href="https://steamcommunity.com/id/nrjnicks/"><i
+                                        class="fa fa-2x vertical-middle fa-steam shake"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -255,14 +255,14 @@
     <div class="portfolio-modal modal fade in" id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <button onclick="ResetModalParams()" type="button" class="btn btn-xl close-modal"
+                <button onclick="ClosePortfolioModal()" type="button" class="btn-common btn-primary close-modal"
                     data-dismiss="modal">
                     <i class="fa fa-times fa-3x" aria-hidden="true"></i>
                 </button>
                 <div class="container full-width-container">
                     <div class="row">
                         <div class="col-sm-2 change-modal-btn">
-                            <button onclick="ShowPreviousProjectModal()" type="button" class="btn btn-xl">
+                            <button onclick="ShowPreviousProjectModal()" type="button" class="btn-common btn-xl">
                                 <i class="fa fa-3x fa-arrow-left"></i>
                             </button>
                         </div>
@@ -271,7 +271,8 @@
                                 <div class="modal-body">
                                     <!-- Project Details Go Here -->
                                     <h2><span id="modal-projectname">Project Name</span></h2>
-                                    <p class="item-intro text-muted"><span id="modal-projectsmalldescription">Small
+                                    <p class="large item-intro text-muted"><span
+                                            id="modal-projectsmalldescription">Small
                                             Desc</span></p>
                                     <iframe id="modal-videoiframe" width="560" height="315" src="" frameborder="0"
                                         allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -312,24 +313,30 @@
                                     <br>
                                     <ul class="list-inline social-buttons">
                                         <li><a id="modal-androidlink" type="button" target="_blank"
-                                                class="btn btn-primary"><i class="fa fa-2x fa-android"></i></a></li>
+                                                class="btn-common btn-primary"><i
+                                                    class="fa fa-2x vertical-middle fa-android shake"></i></a></li>
                                         <li><a id="modal-applelink" type="button" target="_blank"
-                                                class="btn btn-primary"><i class="fa fa-2x fa-apple"></i></a></li>
+                                                class="btn-common btn-primary"><i class="fa fa-2x vertical-middle fa-apple shake"></i></a>
+                                        </li>
                                         <li><a id="modal-windowslink" type="button" target="_blank"
-                                                class="btn btn-primary"><i class="fa fa-2x fa-windows"></i></a></li>
+                                                class="btn-common btn-primary"><i class="fa fa-2x vertical-middle fa-windows shake"></i></a>
+                                        </li>
                                         <li><a id="modal-steamlink" type="button" target="_blank"
-                                                class="btn btn-primary"><i class="fa fa-2x fa-steam"></i></a></li>
+                                                class="btn-common btn-primary"><i class="fa fa-2x vertical-middle fa-steam shake"></i></a>
+                                        </li>
                                         <li><a id="modal-html5link" type="button" target="_blank"
-                                                class="btn btn-primary"><i class="fa fa-2x fa-html5"></i></a></li>
+                                                class="btn-common btn-primary"><i class="fa fa-2x vertical-middle fa-html5 shake"></i></a>
+                                        </li>
                                         <li><a id="modal-githublink" type="button" target="_blank"
-                                                class="btn btn-primary"><i class="fa fa-2x fa-github"></i></a></li>
+                                                class="btn-common btn-primary"><i class="fa fa-2x vertical-middle fa-github shake"></i></a>
+                                        </li>
                                         <li><a id="modal-moreinfolink" type="button" target="_blank"
-                                                class="btn btn-primary"><i class="fa fa-2x fa-link"></i></a></li>
+                                                class="btn-common btn-primary"><i class="fa fa-2x vertical-middle fa-link shake"></i></a></li>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-2 change-modal-btn">
-                            <button onclick="ShowNextProjectModal()" type="button" class="btn btn-xl">
+                            <button onclick="ShowNextProjectModal()" type="button" class="btn-common btn-xl">
                                 <i class="fa fa-3x fa-arrow-right"></i>
                             </button>
                         </div>
