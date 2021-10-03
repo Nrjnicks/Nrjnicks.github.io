@@ -35,7 +35,7 @@ function SetPorfolioElements() {
 
     for (var projectNo = 0; projectNo < RankedProjects.length; projectNo++) {
         var ProjectDetail = RankedProjects[projectNo];
-        
+
         portfolioElement = portfolioElement.cloneNode(true);
         SetPortfolioThumbnail(portfolioElement);
         parent.appendChild(portfolioElement);
@@ -68,7 +68,7 @@ function ShowProjectModal(id) {
         if (ProjectDetail) {
             ShowLoader();
             SetProjectDescription();
-            SetProjectDownloadLink();
+            SetProjectDownloadLinks();
             SetCarousel();
             if (!SetVideoElement()) {
                 HideLoader();
@@ -81,14 +81,63 @@ function ShowProjectModal(id) {
             document.getElementById("modal-projectlargedescription").innerHTML = ProjectDetail.LargeDescription;
         }
 
-        function SetProjectDownloadLink() {
-            var downloadLinkElement = document.getElementById("modal-moreinfolink");
-            if (ProjectDetail.MoreInfoLink) {
-                ShowElement($(downloadLinkElement));
-                downloadLinkElement.setAttribute('href', ProjectDetail.MoreInfoLink);
+        function SetProjectDownloadLinks() {
+            var linkedElement;
+            SetAndroidLink();
+            SetAppleLink();
+            SetWindowsLink();
+            SetSteamLink();
+            SetHtml5Link();
+            SetGithubLink();
+            SetMoreInfoLink();
+
+            function SetAndroidLink() {
+                var androidlinkElement = document.getElementById("modal-androidlink");
+                linkedElement = androidlinkElement;
+                SetProjectDownloadLink(ProjectDetail.GooglePlayStoreProjectId);
             }
-            else {
-                HideElement($(downloadLinkElement));
+            function SetAppleLink() {
+                var applelinkElement = document.getElementById("modal-applelink");
+                linkedElement = applelinkElement;
+                SetProjectDownloadLink(ProjectDetail.ITunesProjectId);
+            }
+            function SetWindowsLink() {
+                var windowslinkElement = document.getElementById("modal-windowslink");
+                linkedElement = windowslinkElement;
+                SetProjectDownloadLink(ProjectDetail.WinStoreProjectId);
+            }
+            function SetSteamLink() {
+                var steamlinkElement = document.getElementById("modal-steamlink");
+                linkedElement = steamlinkElement;
+                SetProjectDownloadLink(ProjectDetail.SteamProjectId);
+            }
+            function SetHtml5Link() {
+                var html5linkElement = document.getElementById("modal-html5link");
+                linkedElement = html5linkElement;
+                SetProjectDownloadLink(ProjectDetail.HTML5Link);
+            }
+            function SetGithubLink() {
+                var githublinkElement = document.getElementById("modal-githublink");
+                linkedElement = githublinkElement;
+                SetProjectDownloadLink(ProjectDetail.GithubProjectRepo);
+            }
+            function SetMoreInfoLink() {
+                var moreinfolinkElement = document.getElementById("modal-moreinfolink");
+                linkedElement = moreinfolinkElement;
+                SetProjectDownloadLink(ProjectDetail.MoreInfoLink);
+            }
+
+            function SetProjectDownloadLink(value) {
+                linkedElement.setAttribute('href', value);
+                OnElementValueChanged(linkedElement, value);
+            }
+            function OnElementValueChanged(element, value) {
+                if (value) {
+                    ShowElement($(element));
+                }
+                else {
+                    HideElement($(element));
+                }
             }
         }
 
