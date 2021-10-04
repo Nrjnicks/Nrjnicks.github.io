@@ -1,15 +1,17 @@
 
 // Global Variables
-var RankedProjects = [
-    Projects.Details.WorkInProgress,
+var RankedProfessionalProjects = [
     Projects.Details.Homography,
-    Projects.Details.ChemicalCarriageway,
     Projects.Details.MREncyclopedia,
+    Projects.Details.NearbyConnections
+];
+var RankedPersonalProjects = [
+    Projects.Details.WorkInProgress,
+    Projects.Details.ChemicalCarriageway,
     Projects.Details.Snake3D,
     Projects.Details.Gameplay,
     Projects.Details.ShiroDash,
     Projects.Details.RiTE,
-    Projects.Details.NearbyConnections
 ];
 // Functions
 Start();
@@ -29,31 +31,49 @@ function SetKeyboardBinding() {
 
 // Portfolio Section
 function SetPorfolioElements() {
-    var portfolioElement = document.getElementById("portfolio-element");
-    var parent = portfolioElement.parentElement;
-    parent.removeChild(portfolioElement);//remove template element to start clean
+    var portfolioElement = GetPortfolioElement();//remove template element to start clean
+    SetProfessionalProjects(portfolioElement);
+    SetPersonalProjects(portfolioElement);
 
-    for (var projectNo = 0; projectNo < RankedProjects.length; projectNo++) {
-        var ProjectDetail = RankedProjects[projectNo];
-
-        portfolioElement = portfolioElement.cloneNode(true);
-        SetPortfolioThumbnail(portfolioElement);
-        parent.appendChild(portfolioElement);
+    function GetPortfolioElement() {
+        var portfolioElement = document.getElementById("portfolio-element");
+        var templateParent = portfolioElement.parentElement;
+        templateParent.removeChild(portfolioElement); //remove template element to start clean
+        return portfolioElement;
     }
 
-    function SetPortfolioThumbnail(portfolioElement) {
-        portfolioElement.firstElementChild.id = ProjectDetail.ID; //change id of first child which is responsible for click
-        var h4Element = portfolioElement.getElementsByTagName("h4")[0];
-        h4Element.innerHTML = ProjectDetail.Name;
-        var pElement = portfolioElement.getElementsByTagName("p")[0];
-        pElement.innerHTML = ProjectDetail.SmallDescription;
-        var imgElement = portfolioElement.getElementsByTagName("img")[0];
-        SetPortfolioThumbnailImg(imgElement);
+    function SetProfessionalProjects(portfolioElement) {
+        var parent = document.getElementById("professional-projects");
+        SetProjects(RankedProfessionalProjects, portfolioElement, parent);
+    }
 
-        function SetPortfolioThumbnailImg(imgElement) {
-            imgElement.setAttribute("src", `img/portfolio/${ProjectDetail.ID}/thumb.jpg`);
-            imgElement.setAttribute("alt", `${ProjectDetail.ID}, ${ProjectDetail.Name}, ${ProjectDetail.SmallDescription}`);
-            imgElement.setAttribute("title", `${ProjectDetail.Name}, ${ProjectDetail.SmallDescription}`);
+    function SetPersonalProjects(portfolioElement) {
+        var parent = document.getElementById("personal-projects");
+        SetProjects(RankedPersonalProjects, portfolioElement, parent);
+    }
+    
+    function SetProjects(RankedProjects, portfolioElement, parent) {
+        for (var projectNo = 0; projectNo < RankedProjects.length; projectNo++) {
+            var ProjectDetail = RankedProjects[projectNo];
+            portfolioElement = portfolioElement.cloneNode(true);
+            SetPortfolioThumbnail(portfolioElement, ProjectDetail);
+            parent.appendChild(portfolioElement);
+        }
+
+        function SetPortfolioThumbnail(portfolioElement, ProjectDetail) {
+            portfolioElement.firstElementChild.id = ProjectDetail.ID; //change id of first child which is responsible for click
+            var h4Element = portfolioElement.getElementsByTagName("h4")[0];
+            h4Element.innerHTML = ProjectDetail.Name;
+            var pElement = portfolioElement.getElementsByTagName("p")[0];
+            pElement.innerHTML = ProjectDetail.SmallDescription;
+            var imgElement = portfolioElement.getElementsByTagName("img")[0];
+            SetPortfolioThumbnailImg(imgElement);
+    
+            function SetPortfolioThumbnailImg(imgElement) {
+                imgElement.setAttribute("src", `img/portfolio/${ProjectDetail.ID}/thumb.jpg`);
+                imgElement.setAttribute("alt", `${ProjectDetail.ID}, ${ProjectDetail.Name}, ${ProjectDetail.SmallDescription}`);
+                imgElement.setAttribute("title", `${ProjectDetail.Name}, ${ProjectDetail.SmallDescription}`);
+            }
         }
     }
 }
@@ -61,7 +81,7 @@ function SetPorfolioElements() {
 // Show Specific Project
 var currentProjectNumber;
 function ShowProjectModal(id) {
-    currentProjectNumber = RankedProjects.indexOf(Projects.Details[id]);
+    currentProjectNumber = RankedProfessionalProjects.indexOf(Projects.Details[id]);
     SetModalParams(id);
     function SetModalParams(id) {
         var ProjectDetail = Projects.Details[id];
@@ -193,12 +213,12 @@ function ShowProjectModal(id) {
 // Next - Previous Project
 function ShowPreviousProjectModal() {
     ResetModalParams();
-    ShowProjectModal(RankedProjects[(RankedProjects.length + currentProjectNumber - 1) % RankedProjects.length].ID);
+    ShowProjectModal(RankedProfessionalProjects[(RankedProfessionalProjects.length + currentProjectNumber - 1) % RankedProfessionalProjects.length].ID);
 }
 
 function ShowNextProjectModal() {
     ResetModalParams();
-    ShowProjectModal(RankedProjects[(currentProjectNumber + 1) % RankedProjects.length].ID);
+    ShowProjectModal(RankedProfessionalProjects[(currentProjectNumber + 1) % RankedProfessionalProjects.length].ID);
 }
 
 function ClosePortfolioModal() {
