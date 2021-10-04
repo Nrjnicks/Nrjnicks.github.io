@@ -59,20 +59,20 @@ function SetPorfolioElements() {
             SetPortfolioThumbnail(portfolioElement, ProjectDetail);
             parent.appendChild(portfolioElement);
         }
-
+        
         function SetPortfolioThumbnail(portfolioElement, ProjectDetail) {
             portfolioElement.firstElementChild.id = ProjectDetail.ID; //change id of first child which is responsible for click
             var h4Element = portfolioElement.getElementsByTagName("h4")[0];
             h4Element.innerHTML = ProjectDetail.Name;
             var pElement = portfolioElement.getElementsByTagName("p")[0];
-            pElement.innerHTML = ProjectDetail.SmallDescription;
+            pElement.innerHTML = ProjectDetail.Keywords;
             var imgElement = portfolioElement.getElementsByTagName("img")[0];
             SetPortfolioThumbnailImg(imgElement);
     
             function SetPortfolioThumbnailImg(imgElement) {
                 imgElement.setAttribute("src", `img/portfolio/${ProjectDetail.ID}/thumb.jpg`);
-                imgElement.setAttribute("alt", `${ProjectDetail.ID}, ${ProjectDetail.Name}, ${ProjectDetail.SmallDescription}`);
-                imgElement.setAttribute("title", `${ProjectDetail.Name}, ${ProjectDetail.SmallDescription}`);
+                imgElement.setAttribute("alt", `${ProjectDetail.ID}, ${ProjectDetail.Name}, ${ProjectDetail.Keywords}`);
+                imgElement.setAttribute("title", `${ProjectDetail.Name}, ${ProjectDetail.Keywords}`);
             }
         }
     }
@@ -97,8 +97,8 @@ function ShowProjectModal(id) {
 
         function SetProjectDescription() {
             document.getElementById("modal-projectname").innerHTML = ProjectDetail.Name;
-            document.getElementById("modal-projectsmalldescription").innerHTML = ProjectDetail.SmallDescription;
-            document.getElementById("modal-projectlargedescription").innerHTML = ProjectDetail.LargeDescription;
+            document.getElementById("modal-projectsmalldescription").innerHTML = ProjectDetail.Keywords;
+            document.getElementById("modal-projectlargedescription").innerHTML = ProjectDetail.Description;
         }
 
         function SetProjectDownloadLinks() {
