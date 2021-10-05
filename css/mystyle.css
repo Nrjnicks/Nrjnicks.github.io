@@ -1,0 +1,11 @@
+
+/*My Style*/
+ul.center-align{text-align:center;list-style:none}img.portfolio-img-heightfix{height:300px;object-fit:cover}.full-width-container{width:100%;border:0!important}.header-container{height:100vh}.portfolio-modal .change-modal-btn{top:50vh;position:sticky}.large-container{width:80%}.loader{position:fixed;bottom:0px;right:0px;padding-bottom:9%;padding-right:16%;z-index:1051}.btn-common{color:var(--main-text-color);background-color:var(--main-color);border:none;border-radius:100%;cursor:pointer}.btn-intro{position:absolute;bottom:5%}.btn-intro:hover{animation-play-state:paused}.background-animation{position:absolute;height:100%;width:100%;}@media (min-width:1500px){.col-xl-3{width:25%}}.fa-icon{color:var(--main-color)}.fa-icon-circled{border-radius:100%;background-color:var(--main-color);color:var(--main-text-color)}.vertical-middle{vertical-align:middle}.subsection-heading{    font-size:var(--header-font-size);text-transform:none;font-weight:400;margin-bottom:7vh;}
+
+/* animations */
+.spin{animation:spin 2s ease infinite}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.bounce{animation:bounce 1.5s ease infinite}@keyframes bounce{0%{transform:translateY(0)}10%{transform:translateY(0)}30%{transform:translateY(-100px)}50%{transform:translateY(0)}57%{transform:translateY(-7px)}64%{transform:translateY(0)}}
+.shake{animation:shake 1s ease infinite}@keyframes shake{25%{transform:rotate(-10deg)}50%{transform:rotate(0deg)}75%{transform:rotate(10deg)}}
+.grow{animation:grow 2s linear infinite}@keyframes grow{0%{transform:scale(0,0)}100%{transform:scale(1,1)}}
+.fade-out{animation:fade 3s ease infinite}@keyframes fade{0%{opacity:100%}100%{opacity:0%}}
+.grow-fade{animation:grow 3s ease infinite,fade 3s ease infinite}
