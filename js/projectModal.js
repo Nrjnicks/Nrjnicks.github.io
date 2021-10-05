@@ -1,18 +1,21 @@
 
 // Global Variables
-var RankedProfessionalProjects = [
+var ProfessionalProjects = [
     Projects.Details.Homography,
-    Projects.Details.MREncyclopedia,
+    Projects.Details.ShiroDash,
     Projects.Details.NearbyConnections
 ];
-var RankedPersonalProjects = [
+var GameJamProjects = [
+    Projects.Details.MREncyclopedia,
+];
+var PersonalProjects = [
     Projects.Details.WorkInProgress,
     Projects.Details.ChemicalCarriageway,
     Projects.Details.Snake3D,
     Projects.Details.Gameplay,
-    Projects.Details.ShiroDash,
     Projects.Details.RiTE,
 ];
+var AllProjects = Array.prototype.concat(ProfessionalProjects, GameJamProjects, PersonalProjects);
 // Functions
 Start();
 function Start() {
@@ -33,6 +36,7 @@ function SetKeyboardBinding() {
 function SetPorfolioElements() {
     var portfolioElement = GetPortfolioElement();//remove template element to start clean
     SetProfessionalProjects(portfolioElement);
+    SetGameJamProjects(portfolioElement);
     SetPersonalProjects(portfolioElement);
 
     function GetPortfolioElement() {
@@ -44,14 +48,17 @@ function SetPorfolioElements() {
 
     function SetProfessionalProjects(portfolioElement) {
         var parent = document.getElementById("professional-projects");
-        SetProjects(RankedProfessionalProjects, portfolioElement, parent);
+        SetProjects(ProfessionalProjects, portfolioElement, parent);
     }
-
+    function SetGameJamProjects(portfolioElement) {
+        var parent = document.getElementById("gamejam-projects");
+        SetProjects(GameJamProjects, portfolioElement, parent);
+    }
     function SetPersonalProjects(portfolioElement) {
         var parent = document.getElementById("personal-projects");
-        SetProjects(RankedPersonalProjects, portfolioElement, parent);
+        SetProjects(PersonalProjects, portfolioElement, parent);
     }
-    
+
     function SetProjects(RankedProjects, portfolioElement, parent) {
         for (var projectNo = 0; projectNo < RankedProjects.length; projectNo++) {
             var ProjectDetail = RankedProjects[projectNo];
@@ -59,7 +66,7 @@ function SetPorfolioElements() {
             SetPortfolioThumbnail(portfolioElement, ProjectDetail);
             parent.appendChild(portfolioElement);
         }
-        
+
         function SetPortfolioThumbnail(portfolioElement, ProjectDetail) {
             portfolioElement.firstElementChild.id = ProjectDetail.ID; //change id of first child which is responsible for click
             var h4Element = portfolioElement.getElementsByTagName("h4")[0];
@@ -68,7 +75,7 @@ function SetPorfolioElements() {
             pElement.innerHTML = ProjectDetail.Keywords;
             var imgElement = portfolioElement.getElementsByTagName("img")[0];
             SetPortfolioThumbnailImg(imgElement);
-    
+
             function SetPortfolioThumbnailImg(imgElement) {
                 imgElement.setAttribute("src", `img/portfolio/${ProjectDetail.ID}/thumb.jpg`);
                 imgElement.setAttribute("alt", `${ProjectDetail.ID}, ${ProjectDetail.Name}, ${ProjectDetail.Keywords}`);
@@ -79,146 +86,150 @@ function SetPorfolioElements() {
 }
 
 // Show Specific Project
-var currentProjectNumber;
-function ShowProjectModal(id) {
-    currentProjectNumber = RankedProfessionalProjects.indexOf(Projects.Details[id]);
-    SetModalParams(id);
-    function SetModalParams(id) {
-        var ProjectDetail = Projects.Details[id];
-        if (ProjectDetail) {
-            ShowLoader();
-            SetProjectDescription();
-            SetProjectDownloadLinks();
-            SetCarousel();
-            if (!SetVideoElement()) {
-                HideLoader();
-            }
+var currentProjectIndex;
+function ShowProjectForId(projectId) {
+    var projectDetails = Projects.Details[projectId];
+    currentProjectIndex = AllProjects.indexOf(projectDetails);
+
+    if (projectDetails) {
+        ShowLoader();
+        SetProjectDescription();
+        SetProjectDownloadLinks();
+        SetCarousel();
+        if (!SetVideoElement()) {
+            HideLoader();
+        }
+    }
+
+    function SetProjectDescription() {
+        document.getElementById("modal-projectname").innerHTML = projectDetails.Name;
+        document.getElementById("modal-projectsmalldescription").innerHTML = projectDetails.Keywords;
+        document.getElementById("modal-projectlargedescription").innerHTML = projectDetails.Description;
+    }
+
+    function SetProjectDownloadLinks() {
+        var linkedElement;
+        SetAndroidLink();
+        SetAppleLink();
+        SetWindowsLink();
+        SetSteamLink();
+        SetHtml5Link();
+        SetGithubLink();
+        SetMoreInfoLink();
+
+        function SetAndroidLink() {
+            var androidlinkElement = document.getElementById("modal-androidlink");
+            linkedElement = androidlinkElement;
+            SetProjectDownloadLink(projectDetails.GooglePlayStoreProjectId);
+        }
+        function SetAppleLink() {
+            var applelinkElement = document.getElementById("modal-applelink");
+            linkedElement = applelinkElement;
+            SetProjectDownloadLink(projectDetails.ITunesProjectId);
+        }
+        function SetWindowsLink() {
+            var windowslinkElement = document.getElementById("modal-windowslink");
+            linkedElement = windowslinkElement;
+            SetProjectDownloadLink(projectDetails.WinStoreProjectId);
+        }
+        function SetSteamLink() {
+            var steamlinkElement = document.getElementById("modal-steamlink");
+            linkedElement = steamlinkElement;
+            SetProjectDownloadLink(projectDetails.SteamProjectId);
+        }
+        function SetHtml5Link() {
+            var html5linkElement = document.getElementById("modal-html5link");
+            linkedElement = html5linkElement;
+            SetProjectDownloadLink(projectDetails.HTML5Link);
+        }
+        function SetGithubLink() {
+            var githublinkElement = document.getElementById("modal-githublink");
+            linkedElement = githublinkElement;
+            SetProjectDownloadLink(projectDetails.GithubProjectRepo);
+        }
+        function SetMoreInfoLink() {
+            var moreinfolinkElement = document.getElementById("modal-moreinfolink");
+            linkedElement = moreinfolinkElement;
+            SetProjectDownloadLink(projectDetails.MoreInfoLink);
         }
 
-        function SetProjectDescription() {
-            document.getElementById("modal-projectname").innerHTML = ProjectDetail.Name;
-            document.getElementById("modal-projectsmalldescription").innerHTML = ProjectDetail.Keywords;
-            document.getElementById("modal-projectlargedescription").innerHTML = ProjectDetail.Description;
+        function SetProjectDownloadLink(value) {
+            linkedElement.setAttribute('href', value);
+            OnElementValueChanged(linkedElement, value);
         }
-
-        function SetProjectDownloadLinks() {
-            var linkedElement;
-            SetAndroidLink();
-            SetAppleLink();
-            SetWindowsLink();
-            SetSteamLink();
-            SetHtml5Link();
-            SetGithubLink();
-            SetMoreInfoLink();
-
-            function SetAndroidLink() {
-                var androidlinkElement = document.getElementById("modal-androidlink");
-                linkedElement = androidlinkElement;
-                SetProjectDownloadLink(ProjectDetail.GooglePlayStoreProjectId);
-            }
-            function SetAppleLink() {
-                var applelinkElement = document.getElementById("modal-applelink");
-                linkedElement = applelinkElement;
-                SetProjectDownloadLink(ProjectDetail.ITunesProjectId);
-            }
-            function SetWindowsLink() {
-                var windowslinkElement = document.getElementById("modal-windowslink");
-                linkedElement = windowslinkElement;
-                SetProjectDownloadLink(ProjectDetail.WinStoreProjectId);
-            }
-            function SetSteamLink() {
-                var steamlinkElement = document.getElementById("modal-steamlink");
-                linkedElement = steamlinkElement;
-                SetProjectDownloadLink(ProjectDetail.SteamProjectId);
-            }
-            function SetHtml5Link() {
-                var html5linkElement = document.getElementById("modal-html5link");
-                linkedElement = html5linkElement;
-                SetProjectDownloadLink(ProjectDetail.HTML5Link);
-            }
-            function SetGithubLink() {
-                var githublinkElement = document.getElementById("modal-githublink");
-                linkedElement = githublinkElement;
-                SetProjectDownloadLink(ProjectDetail.GithubProjectRepo);
-            }
-            function SetMoreInfoLink() {
-                var moreinfolinkElement = document.getElementById("modal-moreinfolink");
-                linkedElement = moreinfolinkElement;
-                SetProjectDownloadLink(ProjectDetail.MoreInfoLink);
-            }
-
-            function SetProjectDownloadLink(value) {
-                linkedElement.setAttribute('href', value);
-                OnElementValueChanged(linkedElement, value);
-            }
-            function OnElementValueChanged(element, value) {
-                if (value) {
-                    ShowElement($(element));
-                }
-                else {
-                    HideElement($(element));
-                }
-            }
-        }
-
-        function SetVideoElement() {
-            var videoElement = document.getElementById("modal-videoiframe");
-            if (ProjectDetail.YoutubeVideoId) {
-                ShowElement($(videoElement));
-                videoElement.setAttribute('src', `https://www.youtube.com/embed/${ProjectDetail.YoutubeVideoId}/?mute=1`);
-                videoElement.setAttribute('onload', HideLoader.name);
-                return true
+        function OnElementValueChanged(element, value) {
+            if (value) {
+                ShowElement($(element));
             }
             else {
-                HideElement($(videoElement));
-                return false;
+                HideElement($(element));
             }
         }
+    }
 
-        function SetCarousel() {
-            var buttonedIndicatorElmnt = document.getElementById("portfolio-carousel-indicator");
-            var imgContainerElmnt = document.getElementById("portfolio-carousel-inner");
+    function SetVideoElement() {
+        var videoElement = document.getElementById("modal-videoiframe");
+        if (projectDetails.YoutubeVideoId) {
+            ShowElement($(videoElement));
+            videoElement.setAttribute('src', `https://www.youtube.com/embed/${projectDetails.YoutubeVideoId}/?mute=1`);
+            videoElement.setAttribute('onload', HideLoader.name);
+            return true
+        }
+        else {
+            HideElement($(videoElement));
+            return false;
+        }
+    }
 
-            var buttonedIndicatorElmntParent = buttonedIndicatorElmnt.parentElement;
-            var imgContainerElmntParent = imgContainerElmnt.parentElement;
+    function SetCarousel() {
+        var buttonedIndicatorElmnt = document.getElementById("portfolio-carousel-indicator");
+        var imgContainerElmnt = document.getElementById("portfolio-carousel-inner");
 
-            buttonedIndicatorElmnt.classList.remove("active");
-            imgContainerElmnt.classList.remove("active");
+        var buttonedIndicatorElmntParent = buttonedIndicatorElmnt.parentElement;
+        var imgContainerElmntParent = imgContainerElmnt.parentElement;
 
-            DeleteAllChild(buttonedIndicatorElmntParent);
-            DeleteAllChild(imgContainerElmntParent);
+        buttonedIndicatorElmnt.classList.remove("active");
+        imgContainerElmnt.classList.remove("active");
 
-            var imgPath = `img/portfolio/${ProjectDetail.ID}/${ProjectDetail.ID}`;
-            for (let i = 1; i <= ProjectDetail.NoOfProjectImages; i++) {
+        DeleteAllChild(buttonedIndicatorElmntParent);
+        DeleteAllChild(imgContainerElmntParent);
 
-                buttonedIndicatorElmnt.setAttribute("data-slide-to", i);
-                imgContainerElmnt.firstElementChild.setAttribute("src", `${imgPath + i}.jpg`);//as you would guess, string+1=string1
+        var imgPath = `img/portfolio/${projectDetails.ID}/${projectDetails.ID}`;
+        for (let i = 1; i <= projectDetails.NoOfProjectImages; i++) {
 
-                buttonedIndicatorElmntParent.appendChild(buttonedIndicatorElmnt.cloneNode(true));
-                imgContainerElmntParent.appendChild(imgContainerElmnt.cloneNode(true));
-            }
-            buttonedIndicatorElmntParent.firstElementChild.classList.add("active");
-            imgContainerElmntParent.firstElementChild.classList.add("active");
+            buttonedIndicatorElmnt.setAttribute("data-slide-to", i);
+            imgContainerElmnt.firstElementChild.setAttribute("src", `${imgPath + i}.jpg`);//as you would guess, string+1=string1
 
-            function DeleteAllChild(parent) {
-                while (parent.lastElementChild) {
-                    parent.removeChild(parent.lastElementChild)
-                }
+            buttonedIndicatorElmntParent.appendChild(buttonedIndicatorElmnt.cloneNode(true));
+            imgContainerElmntParent.appendChild(imgContainerElmnt.cloneNode(true));
+        }
+        buttonedIndicatorElmntParent.firstElementChild.classList.add("active");
+        imgContainerElmntParent.firstElementChild.classList.add("active");
+
+        function DeleteAllChild(parent) {
+            while (parent.lastElementChild) {
+                parent.removeChild(parent.lastElementChild)
             }
         }
     }
 }
 
+function ShowProjectForIndex(index) {
+    var projectId = AllProjects[index].ID;
+    ShowProjectForId(projectId);
+}
 
 // Next - Previous Project
 function ShowPreviousProjectModal() {
     ResetModalParams();
-    ShowProjectModal(RankedProfessionalProjects[(RankedProfessionalProjects.length + currentProjectNumber - 1) % RankedProfessionalProjects.length].ID);
+    var previousProjectIndex = (AllProjects.length + currentProjectIndex - 1) % AllProjects.length;
+    ShowProjectForIndex(previousProjectIndex);
 }
 
 function ShowNextProjectModal() {
     ResetModalParams();
-    ShowProjectModal(RankedProfessionalProjects[(currentProjectNumber + 1) % RankedProfessionalProjects.length].ID);
+    var nextProjectIndex = (currentProjectIndex + 1) % AllProjects.length;
+    ShowProjectForIndex(nextProjectIndex);
 }
 
 function ClosePortfolioModal() {
