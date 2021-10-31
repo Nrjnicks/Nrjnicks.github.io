@@ -78,6 +78,7 @@ function SetPorfolioElements() {
 
             function SetPortfolioThumbnailImg(imgElement) {
                 imgElement.setAttribute("src", `img/portfolio/${ProjectDetail.ID}/thumb.jpg`);
+                imgElement.setAttribute("onerror", `javascript:this.src="img/portfolio/${Projects.Details.Default.ID}/thumb.jpg"`);
                 imgElement.setAttribute("alt", `${ProjectDetail.ID}, ${ProjectDetail.Name}, ${ProjectDetail.Keywords}`);
                 imgElement.setAttribute("title", `${ProjectDetail.Name}, ${ProjectDetail.Keywords}`);
             }
@@ -104,6 +105,7 @@ function ShowProjectForId(projectId) {
     function SetProjectDescription() {
         document.getElementById("modal-projectname").innerHTML = projectDetails.Name;
         document.getElementById("modal-projectsmalldescription").innerHTML = projectDetails.Keywords;
+        document.getElementById("modal-projectdate").innerHTML = projectDetails.Dates || "";
         document.getElementById("modal-projectlargedescription").innerHTML = projectDetails.Description;
     }
 
@@ -125,17 +127,17 @@ function ShowProjectForId(projectId) {
         function SetAppleLink() {
             var applelinkElement = document.getElementById("modal-applelink");
             linkedElement = applelinkElement;
-            SetProjectDownloadLink(projectDetails.ITunesProjectId);
+            SetProjectDownloadLink(projectDetails.ITunesStoreProjectId);
         }
         function SetWindowsLink() {
             var windowslinkElement = document.getElementById("modal-windowslink");
             linkedElement = windowslinkElement;
-            SetProjectDownloadLink(projectDetails.WinStoreProjectId);
+            SetProjectDownloadLink(projectDetails.WindowsStoreProjectId);
         }
         function SetSteamLink() {
             var steamlinkElement = document.getElementById("modal-steamlink");
             linkedElement = steamlinkElement;
-            SetProjectDownloadLink(projectDetails.SteamProjectId);
+            SetProjectDownloadLink(projectDetails.SteamStoreProjectId);
         }
         function SetHtml5Link() {
             var html5linkElement = document.getElementById("modal-html5link");
@@ -162,7 +164,7 @@ function ShowProjectForId(projectId) {
                 ShowElement($(element));
             }
             else {
-                HideElement($(element));
+                HideElement($(element.parentElement));
             }
         }
     }
@@ -193,6 +195,12 @@ function ShowProjectForId(projectId) {
 
         DeleteAllChild(buttonedIndicatorElmntParent);
         DeleteAllChild(imgContainerElmntParent);
+        
+        if (projectDetails.NoOfProjectImages == 0) {
+            HideElement($(document.getElementById("portfolio-carousel").parentElement));
+            return;
+        }
+
 
         var imgPath = `img/portfolio/${projectDetails.ID}/${projectDetails.ID}`;
         for (let i = 1; i <= projectDetails.NoOfProjectImages; i++) {
