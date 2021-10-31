@@ -173,8 +173,8 @@ function ShowProjectForId(projectId) {
         var videoElement = document.getElementById("modal-videoiframe");
         if (projectDetails.YoutubeVideoId) {
             ShowElement($(videoElement));
-            videoElement.setAttribute('src', `https://www.youtube.com/embed/${projectDetails.YoutubeVideoId}/?mute=1`);
             videoElement.setAttribute('onload', HideLoader.name);
+            videoElement.setAttribute('src', `https://www.youtube.com/embed/${projectDetails.YoutubeVideoId}/?mute=1`);
             return true
         }
         else {
