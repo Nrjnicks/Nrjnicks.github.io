@@ -1,18 +1,26 @@
 
 // Global Variables
 var ProfessionalProjects = [
+    // Projects.Details.MobileFarm,
+    // Projects.Details.StarcademyBioform,
+    Projects.Details.TileVisualiser,
     Projects.Details.Homography,
     Projects.Details.ShiroDash,
     Projects.Details.NearbyConnections
 ];
 var GameJamProjects = [
     Projects.Details.MREncyclopedia,
+    // Projects.Details.WhatsappMultiGame,
+    // Projects.Details.GNOD,
+    // Projects.Details.JoeSchmoe,
 ];
 var PersonalProjects = [
+    // Projects.Details.TimeMechmaybe,
+    // Projects.Details.Clone1942,
     Projects.Details.WorkInProgress,
     Projects.Details.ChemicalCarriageway,
     Projects.Details.Snake3D,
-    Projects.Details.Gameplay,
+    Projects.Details.Gameplay,// MarioCloneTeaching,?
     Projects.Details.RiTE,
 ];
 var AllProjects = Array.prototype.concat(ProfessionalProjects, GameJamProjects, PersonalProjects);
